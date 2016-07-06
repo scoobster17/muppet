@@ -1,0 +1,34 @@
+{
+  "name": "muppet",
+  "version": "1.0.0",
+  "description": "Muppet, an app to track things on a map you muppet. Map it!",
+  "main": "gulpfile.js",
+  "scripts": {
+    "test": "echo \"Error: no test specified\" && exit 1"
+  },
+  "repository": {
+    "type": "git",
+    "url": "git+https://github.com/scoobster17/muppet.git"
+  },
+  "keywords": [
+    "muppet",
+    "map",
+    "track",
+    "tracker",
+    "planner",
+    "organiser",
+    "mapper"
+  ],
+  "author": "Phil Gibbins <scoobster17@hotmail.co.uk> (http://www.philgibbins.com)",
+  "license": "MIT",
+  "bugs": {
+    "url": "https://github.com/scoobster17/muppet/issues"
+  },
+  "homepage": "https://github.com/scoobster17/muppet#readme",
+  "devDependencies": {
+    "gulp": "^3.9.1",
+    "gulp-sass": "^2.3.2",
+    "gulp-sourcemaps": "^1.6.0",
+    "gulp-watch": "^4.3.8"
+  }
+}
