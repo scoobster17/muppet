@@ -1,3 +1,5 @@
 ## GIT IGNORE ##
 
 node_modules/
+server/data/config/mapsApiKey.json
+app/js/key.js
