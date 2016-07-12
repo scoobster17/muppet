@@ -2,8 +2,15 @@
 
 @import '_reset';
 
+@import '_fonts';
+
 // temp
 #map {
 	height:600px;
 	width:600px;
+}
+.map-icon-label {
+	.map-icon {
+		// color:red;
+	}
 }

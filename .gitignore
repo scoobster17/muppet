@@ -1,6 +1,7 @@
 ## GIT IGNORE ##
 
 # LIB
+bower_components/
 node_modules/
 
 # HTTPS

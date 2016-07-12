@@ -1,0 +1,29 @@
+{
+  "name": "muppet",
+  "description": "Muppet, an app to track things on a map you muppet. Map it!",
+  "main": "gulpfile.js",
+  "authors": [
+    "Phil Gibbins <scoobster17@hotmail.co.uk> (http://www.philgibbins.com)"
+  ],
+  "license": "MIT",
+  "keywords": [
+    "muppet",
+    "map",
+    "track",
+    "tracker",
+    "planner",
+    "organiser",
+    "mapper"
+  ],
+  "homepage": "https://github.com/scoobster17/muppet",
+  "ignore": [
+    "**/.*",
+    "node_modules",
+    "bower_components",
+    "test",
+    "tests"
+  ],
+  "devDependencies": {
+    "map-icons": "^3.0.0"
+  }
+}

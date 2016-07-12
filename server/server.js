@@ -22,6 +22,9 @@ var app = express();
 
 app.use( express.static(__dirname + "/../app") );
 
+app.use(express.static('bower_components'));
+app.use('/bower_components', express.static('bower_components'));
+
 /*
 app.get('/', function(req, res) {
 	fs.readFile( __dirname + '../app/index.html', 'utf8', function(err, data) {
