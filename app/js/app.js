@@ -54,26 +54,7 @@ muppet.map = function () {
 				};
 
 				// set a marker on the user's location
-				/*
-    const marker = new google.maps.Marker({
-    position: pos,
-    map: mapObj,
-    title: 'You'
-    });
-    */
-
-				var marker2 = new Marker({
-					map: mapObj,
-					position: pos,
-					icon: {
-						path: SQUARE_PIN,
-						fillColor: '#00CCBB',
-						fillOpacity: 1,
-						strokeColor: '',
-						strokeWeight: 0
-					},
-					map_icon_label: '<span class="map-icon map-icon-postal-code"></span>'
-				});
+				var marker2 = placeMarker(mapObj, pos, '#00CCBB', 'map-icon-postal-code');
 
 				// const iconBase = '/img/icons/';
 				// icon: `${iconBase} temp-map-marker.png`
@@ -83,6 +64,22 @@ muppet.map = function () {
 				mapObj.setZoom(16);
 			});
 		}
+	};
+
+	// create / place a marker on the map
+	var placeMarker = function placeMarker(mapObj, position, fillColor, iconClass) {
+		return new Marker({
+			map: mapObj,
+			position: position,
+			icon: {
+				path: SQUARE_PIN,
+				fillColor: fillColor,
+				fillOpacity: 1,
+				strokeColor: '',
+				strokeWeight: 0
+			},
+			map_icon_label: '<span class="map-icon ' + iconClass + '"></span'
+		});
 	};
 
 	// initialisation
