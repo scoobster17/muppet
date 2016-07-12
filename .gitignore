@@ -1,3 +1,7 @@
 ## GIT IGNORE ##
 
+# LIB
 node_modules/
+
+# HTTPS
+*.pem

@@ -5,7 +5,12 @@ muppet.map = function () {
 
 	// config
 	var elems = {};
-	var config = {};
+	var config = {
+		defaultCoords: {
+			lat: 35,
+			lng: -38
+		}
+	};
 
 	/**************************************************************************/
 
@@ -19,21 +24,38 @@ muppet.map = function () {
 
 	var setupMap = function setupMap() {
 
+		// if page JS not run yet, assign DOM elements
 		if (Object.keys(elems).length < 1) bindElems();
 
-		config.eventLatLng = new google.maps.LatLng(51.5719277, 0.420906);
 		var mapOptions = {
-			center: config.eventLatLng,
-			zoom: 17,
+			center: config.defaultCoords,
+			zoom: 3,
 			mapTypeId: google.maps.MapTypeId.ROADMAP
 		};
+
+		config.eventLatLng = new google.maps.LatLng(mapOptions.center.lat, mapOptions.center.lng);
 		var mapObj = new google.maps.Map(elems.map, mapOptions);
-		var iconBase = '/img/icons/';
-		var marker = new google.maps.Marker({
-			position: config.eventLatLng,
-			map: mapObj,
-			icon: iconBase + ' temp-map-marker.png'
-		});
+
+		if (navigator.geolocation) {
+			navigator.geolocation.getCurrentPosition(function (position) {
+				var pos = {
+					lat: position.coords.latitude,
+					lng: position.coords.longitude
+				};
+
+				mapObj.setCenter(pos);
+				mapObj.setZoom(16);
+
+				var marker = new google.maps.Marker({
+					position: pos,
+					map: mapObj,
+					title: 'You'
+				});
+
+				// const iconBase = '/img/icons/';
+				// icon: `${iconBase} temp-map-marker.png`
+			});
+		}
 	};
 
 	var init = function init() {
