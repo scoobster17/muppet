@@ -8,9 +8,7 @@
 
 /* GULP CONFIG */
 
-/**
- * Dependencies
- */
+/* Dependencies */
 
 // gulp itself
 var gulp = require('gulp');
@@ -25,6 +23,17 @@ var babel = require('gulp-babel');
 var watch = require('gulp-watch');
 var sourcemaps = require('gulp-sourcemaps');
 var concat = require('gulp-concat');
+
+// server
+var spawn = require('child_process').spawn;
+
+/* ************************************************************************** */
+
+/* Variables */
+var node;
+var filePaths = {
+	serverConfig: 'server/server.js'
+}
 
 /* ************************************************************************** */
 
@@ -62,10 +71,40 @@ gulp.task("js", function () {
  * Task to watch for changes in files and trigger events
  */
 gulp.task('watch', function() {
+
+	// watch for css changes
 	watch(['app/css/**/*.scss'], function() {
 		gulp.start('sass');
 	});
+
+	// watch for js changes
 	watch(['app/js/**/*.babel.js'], function() {
 		gulp.start('js');
+	});
+
+	// watch for server config changes
+	watch(['server/server.js'], function() {
+		gulp.start('server');
+	});
+
+	// start app server
+	gulp.start('server');
+});
+
+/* ************************************************************************** */
+
+/* SERVER */
+
+gulp.task('server', function() {
+	if (node) {
+		node.kill();
+		console.log('Shutting down app server...');
+	}
+	node = spawn('node', [filePaths.serverConfig], {stdio: 'inherit'});
+	console.log('Starting app server...')
+	node.on('close', function(code) {
+		if (code === 8) {
+			console.log('Error detected, waiting for changes...');
+		}
 	});
 });

@@ -1,7 +1,7 @@
 ;window.muppet = window.muppet || {};
 muppet.map = (() => {
 
-	// config
+	// set default configuration and variables
 	const elems = {};
 	const config = {
 		defaultCoords: {
@@ -14,36 +14,48 @@ muppet.map = (() => {
 
 	/* PRIVATE METHODS */
 
-	// bind DOM elements to the elems object
+	/**
+	 * Bind DOM elements to the elems object
+	 */
 	const bindElems = () => {
 		elems.map = document.getElementById('map');
 		elems.key = document.getElementById('key');
 	};
 
+	/**
+	 * Setup Map
+	 */
     const setupMap = () => {
 
     	// if page JS not run yet, assign DOM elements
     	if (Object.keys(elems).length < 1) bindElems();
 
+    	// define map options object for initialisation, based on default coords
     	const mapOptions = {
     		center: config.defaultCoords,
     		zoom:3,
     		mapTypeId: google.maps.MapTypeId.ROADMAP
     	};
 
-    	config.eventLatLng = new google.maps.LatLng(mapOptions.center.lat, mapOptions.center.lng);
+    	// create google maps object
     	const mapObj = new google.maps.Map(elems.map, mapOptions);
 
+    	// check for geolocation support
     	if (navigator.geolocation) {
+
+    		// get the current position of app user
     		navigator.geolocation.getCurrentPosition((position) => {
+
     			const pos = {
 	            	lat: position.coords.latitude,
 	            	lng: position.coords.longitude
 	            };
 
+	            // center the map on the user's location and zoom in closer
 	            mapObj.setCenter(pos);
 	            mapObj.setZoom(16);
 
+	            // set a marker on the user's location
 	            const marker = new google.maps.Marker({
 					position: pos,
 					map: mapObj,
@@ -57,9 +69,14 @@ muppet.map = (() => {
     	}
     };
 
+    // initialisation
 	const init = () => {
 		bindElems();
 	};
+
+	/**************************************************************************/
+
+	/* PUBLIC METHODS */
 
 	return {
 		init: init,
@@ -67,4 +84,6 @@ muppet.map = (() => {
 	}
 
 })();
+
+// call the initialisation function
 muppet.map.init();

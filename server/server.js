@@ -1,12 +1,22 @@
-var express = require('express');
-var http = require('http');
-var https = require('https');
-var fs = require('fs');
+/**
+ * Server config for Muppet mapping app
+ */
 
-var options = {
+/* DEPENDENCIES */
+
+var express = require('express');
+/*var http = require('http');
+var https = require('https');
+var fs = require('fs');*/
+
+/* ************************************************************************** */
+
+/* APP SETUP */
+
+/*var options = {
   key: fs.readFileSync('key.pem'),
   cert: fs.readFileSync('cert.pem')
-};
+};*/
 
 var app = express();
 
@@ -19,6 +29,10 @@ app.get('/', function(req, res) {
 	});
 });
 */
+
+/* ************************************************************************** */
+
+/* SERVER */
 
 /*
 http.createServer(app).listen(7654);
