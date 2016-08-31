@@ -7,48 +7,45 @@
 	<link rel="stylesheet" type="text/css" href="/css/main.css" />
 </head>
 <body>
-	<div class="container">
-		<header>
-			<p>Muppet</p>
-			<p>A mapping app for all your places. Map it, you muppet!</p>
-			<h1>Your places</h1>
+	<header>
+		<p>Muppet</p>
+		<p>A mapping app for all your places. Map it, you muppet!</p>
+		<h1>Your places</h1>
+		<form>
+			<select>
+				<option value="-1" selected="selected">Please select&hellip;</option>
+				<option value="all">Show all places</option>
+				<option value="people">Address Book: Friends &amp; Family</a></li>
+				<option value="jobs">Employment: Jobs and Interviews</a></li>
+				<option value="holidays">Holidays: Places visited</a></li>
+				<option value="new">Create new category&hellip;</option>
+			</select>
+		</form>
+	</header>
+	<main>
+		<section>
+			<h2>Map</h2>
+			<div id="map"></div>
+		</section>
+		<section>
 			<form>
-				<select>
-					<option value="-1" selected="selected">Please select&hellip;</option>
-					<option value="all">Show all places</option>
-					<option value="people">Address Book: Friends &amp; Family</a></li>
-					<option value="jobs">Employment: Jobs and Interviews</a></li>
-					<option value="holidays">Holidays: Places visited</a></li>
-					<option value="new">Create new category&hellip;</option>
-				</select>
+				<h2>Add a new category</h2>
+				<label for="categoryName">Category name:</label>
+				<input type="text" name="categoryName" id="categoryName" />
+				<input type="submit" value="Add Category" />
 			</form>
-		</header>
-		<main>
-			<section>
-				<h2>Map</h2>
-				<div id="map"></div>
-			</section>
-			<section>
-				<form>
-					<h2>Add a new category</h2>
-					<label for="categoryName">Category name:</label>
-					<input type="text" name="categoryName" id="categoryName" />
-					<input type="submit" value="Add Category" />
-				</form>
-				<form>
-					<h2>Add a new place</h2>
-					<label for="placeName">Place name:</label>
-					<input type="text" name="placeName" id="placeName" />
-					<input type="submit" value="Add place" />
-				</form>
-				<!-- <p>There are many icons to chose from. <a href="http://map-icons.com/#icons">Click here to see the full list of icons</a>.</p> -->
-			</section>
-		</main>
-		<footer>
-			<p>&copy; Phil Gibbins</p>
-		</footer>
-	</div>
-	<input type="hidden" name="key" id="key" value="" />
+			<form>
+				<h2>Add a new place</h2>
+				<label for="placeName">Place name:</label>
+				<input type="text" name="placeName" id="placeName" />
+				<input type="submit" value="Add place" />
+			</form>
+			<!-- <p>There are many icons to chose from. <a href="http://map-icons.com/#icons">Click here to see the full list of icons</a>.</p> -->
+		</section>
+	</main>
+	<footer>
+		<p>&copy; Phil Gibbins</p>
+	</footer>
 	<script type="text/javascript" src="/js/app.js"></script>
 	<script src="https://maps.googleapis.com/maps/api/js?key=AIzaSyC_aNEvBqT05sg4VVM8rLwczH5WExx5y2E&callback=muppet.map.setupMap"></script>
 	<script type="text/javascript" src="/bower_components/map-icons/dist/js/map-icons.min.js"></script>

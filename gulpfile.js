@@ -95,11 +95,7 @@ gulp.task('watch', function() {
 
 /* SERVER */
 
-gulp.task('server', function() {
-	if (node) {
-		node.kill();
-		console.log('Shutting down app server...');
-	}
+gulp.task('server', ['kill-server'], function() {
 	node = spawn('node', [filePaths.serverConfig], {stdio: 'inherit'});
 	console.log('Starting app server...')
 	node.on('close', function(code) {
@@ -107,4 +103,11 @@ gulp.task('server', function() {
 			console.log('Error detected, waiting for changes...');
 		}
 	});
+});
+
+gulp.task('kill-server', function() {
+	if (node) {
+		node.kill();
+		console.log('Shutting down app server...');
+	}
 });
