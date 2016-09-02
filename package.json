@@ -4,7 +4,9 @@
   "description": "Muppet, an app to track things on a map you muppet. Map it!",
   "main": "gulpfile.js",
   "scripts": {
-    "test": "echo \"Error: no test specified\" && exit 1"
+    "test": "echo \"Error: no test specified\" && exit 1",
+    "build": "./node_modules/webpack/bin/webpack.js -p",
+    "start": "./node_modules/webpack-dev-server/bin/webpack-dev-server.js --inline --hot"
   },
   "repository": {
     "type": "git",
@@ -26,13 +28,25 @@
   },
   "homepage": "https://github.com/scoobster17/muppet#readme",
   "devDependencies": {
+    "babel-core": "^6.14.0",
+    "babel-loader": "^6.2.5",
     "babel-preset-es2015": "^6.9.0",
+    "babel-preset-react": "^6.11.1",
+    "css-loader": "^0.24.0",
+    "extract-text-webpack-plugin": "^1.0.1",
     "gulp": "^3.9.1",
     "gulp-babel": "^6.1.2",
     "gulp-concat": "^2.6.0",
     "gulp-sass": "^2.3.2",
     "gulp-sourcemaps": "^1.6.0",
-    "gulp-watch": "^4.3.8"
+    "gulp-watch": "^4.3.8",
+    "node-sass": "^3.8.0",
+    "react": "^15.3.1",
+    "react-dom": "^15.3.1",
+    "sass-loader": "^4.0.1",
+    "style-loader": "^0.13.1",
+    "webpack": "^1.13.2",
+    "webpack-dev-server": "^1.15.0"
   },
   "dependencies": {}
 }
