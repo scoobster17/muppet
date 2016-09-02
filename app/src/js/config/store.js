@@ -11,7 +11,16 @@ import rootReducer from '../reducers/root';
 
 // set the default state
 const defaultState = {
-    places: {}
+    places: {
+        defaults: {
+            center: {
+                lat: 44,
+                lng: -38
+            },
+            zoom: 1
+        },
+        userLocation: {}
+    }
 }
 
 // Enable Redux Dev Tools
