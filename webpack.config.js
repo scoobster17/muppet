@@ -1,6 +1,10 @@
 // dependencies
 var ExtractTextPlugin = require("extract-text-webpack-plugin");
 
+// variables
+var DEBUG = process.env.NODE_ENV !== 'production' ? true : false;
+var styles = 'css!sass';
+
 // config
 module.exports = {
     devServer: {
@@ -8,13 +12,13 @@ module.exports = {
     },
     devtool: 'source-map',
     entry: {
-        main: './app/src/js/app.js'
+        common: ['./app/src/js/app.js', './app/src/css/style.scss']
     },
     module: {
         loaders: [
             {
                 test: /\.scss$/,
-                loader: ExtractTextPlugin.extract('css!sass')
+                loader: DEBUG ? 'style!' + styles : ExtractTextPlugin.extract(styles)
             },
             {
                 test: /\.js$/,

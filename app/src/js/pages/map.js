@@ -1,15 +1,34 @@
 // React dependencies
 import React from 'react';
 
+// Map Dependencies
+import GoogleMap from 'google-map-react';
+
+// App dependencies
+import googleMapsApiKey from '../config/key';
+
 class MapPage extends React.Component {
     render() {
+        const config = {
+            center: {
+                lat: 44,
+                lng: -38
+            },
+            zoom: 1
+        }
         return (
-            <main>
-                <section>
-                    <h2>Map</h2>
-                    <div id="map"></div>
-                </section>
-                <section>
+            <main className="mapPage">
+                <h2 className="visuallyHidden">Map</h2>
+                <GoogleMap
+                    defaultCenter={ config.center }
+                    defaultZoom={ config.zoom }
+                    onGoogleApiLoaded={ function() { console.log('map loaded!')} }
+                    bootstrapURLKeys={{
+                        key: googleMapsApiKey,
+                        language: 'en'
+                    }}
+                />
+                { /*<section>
                     <form>
                         <h2>Add a new category</h2>
                         <label htmlFor="categoryName">Category name:</label>
@@ -22,11 +41,11 @@ class MapPage extends React.Component {
                         <input type="text" name="placeName" id="placeName" />
                         <input type="submit" value="Add place" />
                     </form>
-                    { /* <p>There are many icons to chose from. <a href="http://map-icons.com/#icons">Click here to see the full list of icons</a>.</p> */ }
-                </section>
+                </section> */ }
             </main>
         )
     }
 }
+{ /* <p>There are many icons to chose from. <a href="http://map-icons.com/#icons">Click here to see the full list of icons</a>.</p> */ }
 
 export default MapPage;

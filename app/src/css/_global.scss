@@ -3,3 +3,17 @@ body {
 	position:absolute;
 	width:100%;
 }
+.container {
+    height:100%;
+    > div {
+        height:100%;
+    }
+}
+main {
+    height:90%;
+}
+.visuallyHidden {
+    left:-999em;
+    position: absolute;
+    top:-999em;
+}

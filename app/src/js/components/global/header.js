@@ -7,7 +7,8 @@ class GlobalHeader extends React.Component {
             <header>
                 <p>Muppet</p>
                 <p>A mapping app for all your places. Map it, you muppet!</p>
-                <h1>Your places</h1>
+                <h1>{ "Your places" }</h1>
+                <h2>Filter places</h2>
                 <form>
                     <select>
                         <option value="-1">Please select&hellip;</option>
