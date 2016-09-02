@@ -22,7 +22,6 @@ var babel = require('gulp-babel');
 // compilation utilities
 var watch = require('gulp-watch');
 var sourcemaps = require('gulp-sourcemaps');
-var concat = require('gulp-concat');
 
 // server
 var spawn = require('child_process').spawn;
@@ -43,11 +42,11 @@ var filePaths = {
  * Task to compile Sass
  */
 gulp.task('sass', function() {
-	return gulp.src('./app/css/**/*.scss')
+	return gulp.src('./app/src/css/**/*.scss')
 		.pipe(sourcemaps.init())
 		.pipe(sass().on('error', sass.logError))
 		.pipe(sourcemaps.write())
-		.pipe(gulp.dest('./app/css'));
+		.pipe(gulp.dest('./app/dist/css'));
 });
 
 /* ************************************************************************** */
@@ -57,10 +56,9 @@ gulp.task('sass', function() {
 // to add source maps
 
 gulp.task("js", function () {
-  return gulp.src("app/js/map.babel.js")
+  return gulp.src("./app/src/js/app.js")
     .pipe(babel())
-    .pipe(concat('app.js'))
-    .pipe(gulp.dest("app/js"));
+    .pipe(gulp.dest("./app/dist/js"));
 });
 
 /* ************************************************************************** */
@@ -73,12 +71,12 @@ gulp.task("js", function () {
 gulp.task('watch', function() {
 
 	// watch for css changes
-	watch(['app/css/**/*.scss'], function() {
+	watch(['app/src/css/**/*.scss'], function() {
 		gulp.start('sass');
 	});
 
 	// watch for js changes
-	watch(['app/js/**/*.babel.js'], function() {
+	watch(['app/src/js/**/*.babel.js'], function() {
 		gulp.start('js');
 	});
 

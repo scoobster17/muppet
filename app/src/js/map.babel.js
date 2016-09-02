@@ -1,3 +1,5 @@
+export default function maplog(text) {console.log(text)};
+
 ;window.muppet = window.muppet || {};
 muppet.map = (() => {
 
