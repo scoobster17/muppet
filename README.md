@@ -12,3 +12,16 @@ Installation
 This project is going to need node + npm to get you going. TBC
 
 You will need to set up your own Google Maps API key!
+
+
+add places
+filter places - show all by default
+
+
+Redux states
+no places
+    - (dispatch) get places
+        has places
+unfiltered places
+    - (dispatch) filter selection
+        filtered places

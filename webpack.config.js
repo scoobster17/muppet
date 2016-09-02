@@ -10,9 +10,6 @@ module.exports = {
     entry: {
         main: './app/src/js/app.js'
     },
-    output: {
-        filename: './app/dist/js/bundle.js'
-    },
     module: {
         loaders: [
             {
@@ -26,9 +23,15 @@ module.exports = {
             }
         ]
     },
+    output: {
+        path: './app/dist/js/',
+        filename: 'bundle.js',
+        publicPath: '/dist/js/'
+    },
     plugins: [
         new ExtractTextPlugin('./app/dist/css/style.css', {
             allChunks: true
         })
-    ]
+    ],
+    watch: true
 }
