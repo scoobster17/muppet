@@ -1,4 +1,5 @@
 import getLocation from '../components/global/locator';
+import { reCentreMap } from '../components/global/map-handlers';
 
 function places(state = {}, action) {
     switch (action.type) {
@@ -8,6 +9,7 @@ function places(state = {}, action) {
             break;
 
         case 'SET_LOCATION':
+            reCentreMap(action.userLocation, action.map, action.maps);
             return {
                 ...state,
                 userLocation: action.userLocation

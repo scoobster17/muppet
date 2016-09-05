@@ -7,9 +7,11 @@ export function getLocation(mapPageComponent, map, maps) {
     }
 }
 
-export function setLocation(pos) {
+export function setLocation(pos, map, maps) {
     return {
         type: 'SET_LOCATION',
-        userLocation: pos
+        userLocation: pos,
+        map,
+        maps
     }
 }

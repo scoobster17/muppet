@@ -11,7 +11,7 @@ function getLocation(mapPageComponent, map, maps) {
                 lng: position.coords.longitude
             };
 
-            mapPageComponent.props.setLocation(pos);
+            mapPageComponent.props.setLocation(pos, map, maps);
 
             // set a marker on the user's location
             // const marker2 = placeMarker(mapObj, pos, '#00CCBB', 'map-icon-postal-code');
