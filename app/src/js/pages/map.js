@@ -22,7 +22,7 @@ class MapPage extends React.Component {
                 <GoogleMap
                     defaultCenter={ config.center }
                     defaultZoom={ config.zoom }
-                    onGoogleApiLoaded={ ({map, maps}) => this.props.getLocation(this, map, maps) }
+                    onGoogleApiLoaded={ ({map, maps}) => this.props.requestIcons(this, map, maps) }
                     bootstrapURLKeys={{
                         key: googleMapsApiKey,
                         language: 'en'

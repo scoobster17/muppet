@@ -23,7 +23,5 @@
     "test",
     "tests"
   ],
-  "devDependencies": {
-    "map-icons": "^3.0.0"
-  }
+  "devDependencies": {}
 }
