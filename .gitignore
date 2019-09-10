@@ -1,11 +1,10 @@
-## GIT IGNORE ##
-
-# LIB
-bower_components/
-node_modules/
-
-# HTTPS
-*.pem
-
-# SUBLIME
-*.sublime*
+.idea
+.nyc_output
+dist
+config/local.yml
+config/production.yml
+coverage
+node_modules
+public
+src/**/*.js
+src/**/*.js.map

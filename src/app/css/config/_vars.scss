@@ -1,0 +1,46 @@
+
+///////////////////////////////////////////////////////////////////////////////
+// COLOUR PALETTE
+///////////////////////////////////////////////////////////////////////////////
+
+// these colours should only be used in this file in other variables
+// hence why they are sass variables and not CSS variables
+$white: #fff;
+$light-green: #02b290;
+
+
+///////////////////////////////////////////////////////////////////////////////
+// CSS VARIABLES
+///////////////////////////////////////////////////////////////////////////////
+
+:root {
+
+  /////////////////////////////////////////////////////////////////////////////
+  // COLOURS
+  /////////////////////////////////////////////////////////////////////////////
+
+  // fonts
+  //@include root-property(--primary-dark-body-font-colour, $dark-grey);
+  //@include root-property(--secondary-dark-body-font-colour, $mid-grey);
+  @include root-property(--primary-light-body-font-colour, $white);
+  //@include root-property(--secondary-light-body-font-colour, $super-light-grey);
+
+  // backgrounds
+  @include root-property(--primary-light-background-colour, $light-green);
+  //@include root-property(--secondary-light-background-colour, $super-light-grey);
+  //@include root-property(--tertiary-light-background-colour, $light-grey);
+  //@include root-property(--modal-background-colour, rgba(62, 73, 88, 0.8));
+
+  // borders
+  //@include root-property(--primary-border-colour, $light-grey);
+
+  /////////////////////////////////////////////////////////////////////////////
+  // IMAGES
+  /////////////////////////////////////////////////////////////////////////////
+
+  //$image-path: '/assets/images/';
+
+  // icons
+  //@include root-property(--test-icon, '#{ $image-path }icons/test.svg');
+
+}

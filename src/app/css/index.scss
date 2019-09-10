@@ -1,0 +1,14 @@
+// sass config
+@import 'config/mixins';
+@import 'config/vars';
+
+// css reset (~ tells webpack to look in node_modules)
+@import '../../../node_modules/reset-css/sass/reset';
+
+// global styles
+@import 'global/fonts';
+@import 'global/common';
+
+// components
+@import 'components/header';
+@import 'components/footer';

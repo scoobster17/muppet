@@ -1,0 +1,19 @@
+apiServer:
+  http:
+    baseUrl: http://localhost:4226
+    port: 4226
+
+renderingServer:
+  http:
+    baseUrl: http://localhost:4227
+    port: 4227
+
+google:
+  maps:
+    apiKey:
+
+reporting:
+  rollbar:
+    enabled: false
+    environmentName: 'local'
+    accessToken:
